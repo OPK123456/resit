@@ -1,0 +1,9 @@
+.admin-nav-link:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.admin-nav-link:disabled:hover {
+  background: transparent;
+  color: #c4d0dc;
+}

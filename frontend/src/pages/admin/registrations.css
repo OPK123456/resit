@@ -1,0 +1,120 @@
+.registrations-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.registrations-header h1 { font-size: 23px; margin-bottom: 6px; }
+.registrations-header p { color: #8492a6; font-size: 13px; }
+
+.registrations-header .admin-primary-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.registrations-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.reg-stat-card {
+  background: #fff;
+  padding: 21px 18px;
+  border: 1px solid #e9edf2;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(20, 44, 70, 0.025);
+}
+
+.reg-stat-card span { color: #8492a6; font-size: 12px; }
+.reg-stat-card h2 { margin-top: 8px; font-size: 24px; }
+
+.registrations-toolbar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.registrations-toolbar input,
+.registrations-toolbar select {
+  padding: 11px 14px;
+  border: 1px solid #e1e6ef;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+  background: #fff;
+  color: #172b4d;
+}
+
+.registrations-toolbar input { flex: 1; min-width: 220px; }
+
+.registrations-toolbar input:focus,
+.registrations-toolbar select:focus {
+  outline: none;
+  border-color: #17624f;
+  box-shadow: 0 0 0 3px rgba(23, 98, 79, 0.12);
+}
+
+.reg-course-title { color: #8492a6; }
+
+.reg-cancelled { background: #eef0f3; color: #7a8696; }
+
+.reg-cancel-btn {
+  border: none;
+  padding: 7px 11px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #c0392b;
+  background: #fdecea;
+  cursor: pointer;
+}
+
+.reg-cancel-btn:hover { background: #fadbd8; }
+.reg-cancel-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.registrations-empty {
+  text-align: center;
+  padding: 35px !important;
+  color: #8492a6 !important;
+}
+
+.registrations-footer {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #edf0f4;
+  color: #8492a6;
+  font-size: 12px;
+}
+
+/* Registrations per course */
+.reg-course-panel { margin-top: 22px; }
+
+.reg-course-list { margin-top: 20px; display: grid; gap: 14px; }
+
+.reg-course-row {
+  display: grid;
+  grid-template-columns: 230px 1fr 40px;
+  align-items: center;
+  gap: 16px;
+}
+
+.reg-course-name { display: flex; flex-direction: column; min-width: 0; }
+.reg-course-name strong { font-size: 12px; color: #263c56; }
+.reg-course-name span { font-size: 11px; color: #8492a6; }
+
+.reg-course-total { text-align: right; font-size: 12px; color: #263c56; }
+
+@media (max-width: 950px) {
+  .registrations-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 650px) {
+  .registrations-stats { grid-template-columns: 1fr; }
+  .registrations-header { align-items: flex-start; flex-direction: column; }
+  .reg-course-row { grid-template-columns: 1fr 40px; }
+  .reg-course-row .progress-track { grid-column: 1 / -1; order: 3; }
+}

@@ -1,0 +1,497 @@
+/* Replace the entire contents of src/App.css with this file.
+   It overrides Vite's default #root styles, which often cause layout or blank-page issues. */
+
+:root {
+  --ink: #12263a;
+  --ink-soft: #4b5d6e;
+  --paper: #f6f7f4;
+  --card: #ffffff;
+  --line: #dde2dd;
+  --green: #17624f;
+  --green-dark: #0f4a3b;
+  --gold: #e3a22f;
+  --radius: 10px;
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+#root {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+h1, h2, h3, h4, p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand { display: flex; align-items: center; gap: 0.75rem; }
+.brand h2 { font-size: 1.15rem; line-height: 1.1; }
+.brand h2 span { color: var(--green); }
+.brand small { color: var(--ink-soft); font-size: 0.72rem; }
+
+.brand-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.nav-links { display: flex; gap: 1.5rem; }
+.nav-links a { color: var(--ink-soft); font-weight: 500; }
+.nav-links a:hover { color: var(--green); }
+
+.nav-button,
+.primary-button,
+.secondary-button,
+.portal-button {
+  display: inline-block;
+  padding: 0.7rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 2px solid var(--green);
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-button,
+.primary-button,
+.portal-button { background: var(--green); color: #fff; }
+
+.nav-button:hover,
+.primary-button:hover,
+.portal-button:hover { background: var(--green-dark); border-color: var(--green-dark); }
+
+.secondary-button { background: transparent; color: var(--green); }
+.secondary-button:hover { background: var(--green); color: #fff; }
+
+/* ---------- Hero ---------- */
+.hero-section { padding: 4.5rem 1.25rem; }
+
+.hero-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.welcome-label {
+  color: var(--green);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  max-width: 16ch;
+}
+
+.hero-lead {
+  margin-top: 1.25rem;
+  max-width: 52ch;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}
+
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+.hero-note { margin-top: 1.5rem; color: var(--ink-soft); font-size: 0.95rem; }
+.hero-note span { color: var(--green); font-weight: 700; }
+
+/* Hero visual */
+.hero-visual { position: relative; }
+
+.visual-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 32px rgba(18, 38, 58, 0.08);
+}
+
+.visual-header { display: flex; justify-content: space-between; align-items: flex-start; }
+.visual-header small { color: var(--ink-soft); }
+.visual-header h3 { font-size: 1.15rem; }
+.dashboard-icon { color: var(--green); font-size: 1.4rem; }
+
+.visual-welcome { display: flex; align-items: center; gap: 0.75rem; margin: 1.25rem 0; }
+.visual-welcome p { color: var(--ink-soft); font-size: 0.9rem; }
+
+.student-avatar {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.dashboard-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+.stat-card {
+  background: var(--paper);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.stat-card span { color: var(--ink-soft); font-size: 0.85rem; }
+.stat-card strong { font-size: 1.8rem; line-height: 1.2; }
+
+.status-card {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.status-card p { color: var(--ink-soft); font-size: 0.85rem; }
+.status-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); flex: none; }
+
+.floating-card {
+  position: absolute;
+  left: -1.5rem;
+  bottom: -1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 8px 20px rgba(18, 38, 58, 0.1);
+}
+.floating-card p { color: var(--ink-soft); font-size: 0.85rem; }
+.floating-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+}
+
+/* ---------- Sections ---------- */
+.section-container { max-width: 1160px; margin: 0 auto; padding: 0 1.25rem; }
+
+.about-section,
+.features-section,
+.portal-section { padding: 4rem 0; }
+
+.about-section { background: var(--card); border-block: 1px solid var(--line); }
+
+.section-heading { max-width: 62ch; margin-bottom: 2rem; }
+.section-heading h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; }
+.section-heading p { margin-top: 0.75rem; color: var(--ink-soft); }
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+
+.feature-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+.feature-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.feature-card p { color: var(--ink-soft); font-size: 0.95rem; }
+
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.portal-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--green);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.portal-card.admin-portal { border-top-color: var(--gold); }
+.portal-card p { color: var(--ink-soft); flex: 1; }
+.portal-card h3 { font-size: 1.3rem; }
+.portal-button { margin-top: 0.5rem; }
+
+.portal-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* ---------- Footer ---------- */
+.footer { background: var(--ink); color: #dbe3ea; padding: 2.5rem 1.25rem; }
+.footer-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.footer-brand h3 span { color: var(--gold); }
+.footer-brand p, .copyright { font-size: 0.9rem; color: #9fb0bf; }
+
+/* ---------- Placeholder pages ---------- */
+.placeholder {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .hero-container { grid-template-columns: 1fr; gap: 3rem; }
+  .nav-links { display: none; }
+  .floating-card { left: 0.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ================= Student login page ================= */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+}
+
+.login-header {
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-brand { display: flex; align-items: center; gap: 0.75rem; }
+.login-brand h2 { font-size: 1.15rem; line-height: 1.1; }
+.login-brand h2 span { color: var(--green); }
+.login-brand small { color: var(--ink-soft); font-size: 0.72rem; }
+
+.login-brand-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.back-home { color: var(--green); font-weight: 600; }
+.back-home:hover { text-decoration: underline; }
+
+.login-container {
+  flex: 1;
+  max-width: 1060px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.login-label { color: var(--green); font-weight: 600; }
+
+.login-welcome h1 {
+  margin-top: 0.5rem;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.login-welcome p {
+  margin-top: 1rem;
+  max-width: 48ch;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.login-benefits { margin-top: 1.5rem; display: grid; gap: 0.6rem; color: var(--ink); }
+.login-benefits div { color: var(--ink-soft); }
+
+.login-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--green);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 12px 32px rgba(18, 38, 58, 0.08);
+}
+
+.login-card-heading { text-align: center; margin-bottom: 1.5rem; }
+.login-card-heading h2 { font-size: 1.4rem; margin-top: 0.75rem; }
+.login-card-heading p { color: var(--ink-soft); margin-top: 0.25rem; }
+
+.login-user-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.login-form-group { margin-bottom: 1.1rem; }
+.login-form-group label { display: block; font-weight: 600; margin-bottom: 0.4rem; font-size: 0.95rem; }
+
+.login-form-group input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid #b9c3bd;
+  border-radius: 8px;
+}
+
+.login-form-group input:focus {
+  outline: 3px solid rgba(23, 98, 79, 0.25);
+  border-color: var(--green);
+}
+
+.password-input { position: relative; }
+.password-input input { padding-right: 4.5rem; }
+
+.show-password {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.35rem 0.6rem;
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+  font-size: 0.9rem;
+}
+
+.remember-option { display: flex; align-items: center; gap: 0.4rem; cursor: pointer; }
+.login-options a { color: var(--green); font-weight: 600; }
+.login-options a:hover { text-decoration: underline; }
+
+.login-submit {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  background: var(--green);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.login-submit:hover { background: var(--green-dark); }
+
+.login-card-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+.login-card-footer a { color: var(--green); font-weight: 600; }
+
+.login-footer {
+  padding: 1.25rem;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 860px) {
+  .login-container { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* Administrator login accent */
+.login-card.admin-card { border-top-color: var(--gold); }

@@ -1,0 +1,45 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: school_resit_app
+    working_dir: /var/www/html
+    volumes:
+      - ./backend:/var/www/html
+    ports:
+      - "8000:8000"
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: school_resit
+      DB_USERNAME: school_resit_user
+      DB_PASSWORD: school_resit_password
+    command: php artisan serve --host=0.0.0.0 --port=8000
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16-alpine
+    container_name: school_resit_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: school_resit
+      POSTGRES_USER: school_resit_user
+      POSTGRES_PASSWORD: school_resit_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U school_resit_user -d school_resit"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

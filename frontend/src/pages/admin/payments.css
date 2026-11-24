@@ -1,0 +1,183 @@
+.payments-header {
+  margin-bottom: 25px;
+}
+
+.payments-header h1 { font-size: 23px; margin-bottom: 6px; }
+.payments-header p { color: #8492a6; font-size: 13px; }
+
+.payments-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.pay-stat-card {
+  background: #fff;
+  padding: 21px 18px;
+  border: 1px solid #e9edf2;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(20, 44, 70, 0.025);
+}
+
+.pay-stat-card span { color: #8492a6; font-size: 12px; }
+.pay-stat-card h2 { margin: 8px 0 6px; font-size: 24px; }
+.pay-stat-card small { color: #a1aab8; font-size: 11px; }
+
+.payments-toolbar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.payments-toolbar input,
+.payments-toolbar select {
+  padding: 11px 14px;
+  border: 1px solid #e1e6ef;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+  background: #fff;
+  color: #172b4d;
+}
+
+.payments-toolbar input { flex: 1; min-width: 220px; }
+
+.payments-toolbar input:focus,
+.payments-toolbar select:focus {
+  outline: none;
+  border-color: #17624f;
+  box-shadow: 0 0 0 3px rgba(23, 98, 79, 0.12);
+}
+
+.pay-index { color: #8492a6; }
+.pay-failed { background: #fdecea; color: #c0392b; }
+.pay-none { color: #a1aab8; }
+
+.pay-actions { white-space: nowrap; }
+
+.pay-verify-btn,
+.pay-reject-btn,
+.pay-receipt-btn {
+  border: none;
+  padding: 7px 11px;
+  margin-right: 6px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pay-verify-btn { color: #17624f; background: #e3f5ed; }
+.pay-verify-btn:hover { background: #d2eee3; }
+.pay-reject-btn { color: #c0392b; background: #fdecea; }
+.pay-reject-btn:hover { background: #fadbd8; }
+.pay-receipt-btn { color: #3976d3; background: #e7f0ff; }
+.pay-receipt-btn:hover { background: #d8e7ff; }
+
+.payments-empty {
+  text-align: center;
+  padding: 35px !important;
+  color: #8492a6 !important;
+}
+
+.payments-footer {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #edf0f4;
+  color: #8492a6;
+  font-size: 12px;
+}
+
+/* Receipt dialog */
+.pay-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(20, 44, 70, 0.55);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.pay-modal {
+  width: 100%;
+  max-width: 460px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 26px;
+}
+
+.receipt-top { text-align: center; padding-bottom: 14px; border-bottom: 2px solid #17624f; }
+.receipt-top h2 { font-size: 20px; margin-bottom: 6px; color: #17624f; }
+.receipt-top p { font-size: 13px; font-weight: 600; }
+.receipt-top small { color: #8492a6; font-size: 11px; }
+
+.receipt-number {
+  margin: 16px 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #53657b;
+}
+
+.receipt-details { margin: 0; }
+
+.receipt-details div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 0;
+  border-bottom: 1px solid #edf0f4;
+  font-size: 12px;
+}
+
+.receipt-details dt { color: #8492a6; }
+.receipt-details dd { margin: 0; font-weight: 600; text-align: right; }
+
+.receipt-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: #f3f8f6;
+  border-radius: 8px;
+}
+
+.receipt-total span { font-size: 12px; color: #53657b; }
+.receipt-total strong { font-size: 20px; color: #17624f; }
+
+.receipt-note { margin-top: 14px; font-size: 11px; color: #8492a6; text-align: center; }
+
+.pay-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pay-close-btn {
+  padding: 12px 18px;
+  border: 1px solid #d5dce6;
+  background: #fff;
+  color: #53657b;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Print only the receipt */
+@media print {
+  body * { visibility: hidden; }
+  .receipt-sheet, .receipt-sheet * { visibility: visible; }
+  .receipt-sheet { position: absolute; left: 0; top: 0; width: 100%; padding: 20px; }
+}
+
+@media (max-width: 768px) {
+  .payments-stats { grid-template-columns: 1fr; }
+}
